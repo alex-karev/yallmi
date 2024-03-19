@@ -1,4 +1,4 @@
-# YALMI - Yet Anoher LLM Interface
+# YALLMI - Yet Anoher LLM Interface
 
 ## Features
 
