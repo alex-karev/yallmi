@@ -1,3 +1,11 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+
+* {
+  scrollbar-color: #000 transparent;
+  scrollbar-width: thin;
+}
+
+
+
+@tailwind components;
+@tailwind utilities;
