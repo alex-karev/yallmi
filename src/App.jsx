@@ -53,9 +53,9 @@ function App() {
             </div>
           </div>
 
-        <div className="w-full py-4 flex flex-col">
-          <IconTextButton icon={faGear}>Settings</IconTextButton>
-        </div>
+          <div className="w-full py-4 flex flex-col">
+            <IconTextButton icon={faGear}>Settings</IconTextButton>
+          </div>
 
         </aside>
 
@@ -67,17 +67,17 @@ function App() {
           trasition-all duration-150 ease-in \
           bg-white px-2 z-0">
 
-
           <div className="grow relative">
-            <div className="absolute top-0 left-0 \
+            <div className="absolute left-0 top-0 \
               w-full h-full \
-              flex flex-col \
-              gap-y-6 py-6 \
+              flex justify-center \
               overflow-y-scroll \
               overscroll-y-contain snap-y">
-              {messages.map((value, index) => (
-                <Message key={index} icon={index % 2 != 0 ? "robot.png" : "user.png"} isReply={index % 2 != 0}>{value}</Message>
-              ))}
+              <div className="flex flex-col gap-y-12 py-6 w-full max-w-[52rem]">
+                {messages.map((value, index) => (
+                  <Message key={index} icon={index % 2 != 0 ? "robot.png" : "user.png"} isReply={index % 2 != 0}>{value}</Message>
+                ))}
+              </div>
             </div>
           </div>
 
