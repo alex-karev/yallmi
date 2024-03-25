@@ -15,8 +15,8 @@ function MessageAfter({ mirror = false, className }) {
 
 function MessageIcon({ src }) {
   return (
-    <div className="min-w-14 h-full">
-      <img src={src} className="w-14" />
+    <div className="w-14 h-14 rounded-full">
+      <img src={src} className="object-cover" />
     </div>
   )
 }
@@ -29,22 +29,23 @@ function MessageBody({ className, children }) {
   )
 }
 
-export function Message({ children }) {
-  return (
-    <div className="w-full flex flex-row px-2 pl-16 ">
-      <MessageBody className="bg-violet-700 text-slate-50">{children}</MessageBody>
-      <MessageAfter className="fill-violet-700" />
-      <MessageIcon src="icon.png" />
-    </div>
-  )
-}
+export function Message({ isReply = false, icon="icon.png", ...props }) {
+  if (isReply) {
+    return (
+      <div {...props} className="w-full flex flex-row px-2 pr-16 snap-center">
+        <MessageIcon src={icon} />
+        <MessageAfter mirror className="fill-violet-100" />
+        <MessageBody className="bg-violet-100 text-base border-b-4 border-violet-300">{props.children}</MessageBody>
+      </div>
 
-export function ReplyMessage({ children }) {
-  return (
-    <div className="w-full flex flex-row px-2 pr-16 ">
-      <MessageIcon src="icon.png" />
-      <MessageAfter mirror className="fill-violet-100" />
-      <MessageBody className="bg-violet-100 text-base">{children}</MessageBody>
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div {...props} className="w-full flex flex-row px-2 pl-16 snap-center">
+        <MessageBody className="bg-violet-600 text-slate-50 border-b-4 border-violet-800">{props.children}</MessageBody>
+        <MessageAfter className="fill-violet-600" />
+        <MessageIcon src={icon} />
+      </div>
+    )
+  }
 }
